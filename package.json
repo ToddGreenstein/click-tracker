@@ -1,0 +1,11 @@
+{
+  "name": "click-tracker",
+  "version": "0.0.2",
+  "private": true,
+  "dependencies": {
+    "express": "~4.2.0",
+    "couchbase":"~2.0.2",
+    "faker":"2.1.1",
+    "body-parser":"*"
+  }
+}

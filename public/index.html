@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Couchbase Hadoop Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="scripts/jqplot.dateAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="scripts/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="scripts/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="scripts/jqplot.canvasAxisTickRenderer.min.js"></script>
+    <script type="text/javascript" src="scripts/jqplot.canvasTextRenderer.min.js"></script>
+    <script type="text/javascript" src="scripts/controller.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Panel title
+                    </h3>
+                </div>
+                <div class="panel-body" style="height:230px">
+                    <h5>Track User Clicks: <label id="state"></label></h5>
+                    <h5>Ops Per Second: <label id="ops">0</label></h5>
+                    <input type="checkbox" class="switch" checked />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 column">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Events
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div id="myChart" style="height:200px; width:400px;" class="center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Lightweight Analytics
+                    </h3>
+                </div>
+                <div class="panel-body">
+                <div class="btn-group">
+                    <select id="selAnalytics" class ="btn btn-default btn-xs">
+                        <option disabled selected> -- select an option -- </option>
+                        <option value="department">Department</option>
+                        <option value="platform">Platform</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+                    <div id="barchart" style="height:300px; width:800px;" class=center"></div>
+                </div>
+                <div class="panel-footer">
+                <h6><small> © 2015 Couchbase.com </small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by:&nbsp;&nbsp;&nbsp;<img src="/images/logoCouchbase.png"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/logoNode.png"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/logoExpress.png"/>
+          </h6>
+           </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
