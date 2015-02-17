@@ -101,10 +101,12 @@ module.exports.buildView = function (done) {
         views: {
             'department': {
                 map: function (doc, meta) {
-                    if (doc.clickHistory.length > 0) {
-                        for (i = 0; i < doc.clickHistory.length; i++) {
-                            if (doc.clickHistory[i].addedToCart == "yes") {
-                                emit(doc.clickHistory[i].department, 1);
+                    if (doc.clickHistory) {
+                        if (doc.clickHistory.length > 0) {
+                            for (i = 0; i < doc.clickHistory.length; i++) {
+                                if (doc.clickHistory[i].addedToCart == "yes") {
+                                    emit(doc.clickHistory[i].department, 1);
+                                }
                             }
                         }
                     }
@@ -113,10 +115,12 @@ module.exports.buildView = function (done) {
             },
             'platform': {
                 map: function (doc, meta) {
-                    if (doc.clickHistory.length > 0) {
-                        for (i = 0; i < doc.clickHistory.length; i++) {
-                            if (doc.clickHistory[i].addedToCart == "yes") {
-                                emit(doc.clickHistory[i].browserType, 1);
+                    if (doc.clickHistory) {
+                        if (doc.clickHistory.length > 0) {
+                            for (i = 0; i < doc.clickHistory.length; i++) {
+                                if (doc.clickHistory[i].addedToCart == "yes") {
+                                    emit(doc.clickHistory[i].browserType, 1);
+                                }
                             }
                         }
                     }
@@ -125,33 +129,35 @@ module.exports.buildView = function (done) {
             },
             'income': {
                 map: function (doc, meta) {
-                    if (doc.clickHistory.length > 0) {
-                        function setRange(amt) {
-                            if (amt < 70000)return "70k";
-                            if (amt > 70000 && amt <= 80000) return "70k-80k";
-                            if (amt > 80000 && amt <= 90000) return "80k-90k";
-                            if (amt > 90000 && amt <= 100000) return "90k-100k";
-                            if (amt > 100000 && amt <= 110000) return "100k-110k";
-                            if (amt > 110000 && amt <= 120000) return "110k-120k";
-                            if (amt > 120000 && amt <= 130000) return "120k-130k";
-                            if (amt > 130000 && amt <= 140000) return "130k-140k";
-                            if (amt > 140000 && amt <= 150000) return "140k-150k";
-                            if (amt > 150000 && amt <= 160000) return "150k-160k";
-                            if (amt > 160000 && amt <= 170000) return "160k-170k";
-                            if (amt > 170000 && amt <= 180000) return "170k-180k";
-                            if (amt > 180000 && amt <= 190000) return "180k-190k";
-                            if (amt > 190000 && amt <= 200000) return "190k-200k";
-                            if (amt > 200000 && amt <= 210000) return "200k-210k";
-                            if (amt > 210000 && amt <= 220000) return "210k-220k";
-                            if (amt > 220000 && amt <= 230000) return "220k-230k";
-                            if (amt > 230000 && amt <= 240000) return "230k-240k";
-                            if (amt > 240000 && amt <= 250000) return "240k-250k";
-                            if (amt > 250000) return "250K";
-                        }
+                    if (doc.clickHistory) {
+                        if (doc.clickHistory.length > 0) {
+                            function setRange(amt) {
+                                if (amt < 70000)return "70k";
+                                if (amt > 70000 && amt <= 80000) return "70k-80k";
+                                if (amt > 80000 && amt <= 90000) return "80k-90k";
+                                if (amt > 90000 && amt <= 100000) return "90k-100k";
+                                if (amt > 100000 && amt <= 110000) return "100k-110k";
+                                if (amt > 110000 && amt <= 120000) return "110k-120k";
+                                if (amt > 120000 && amt <= 130000) return "120k-130k";
+                                if (amt > 130000 && amt <= 140000) return "130k-140k";
+                                if (amt > 140000 && amt <= 150000) return "140k-150k";
+                                if (amt > 150000 && amt <= 160000) return "150k-160k";
+                                if (amt > 160000 && amt <= 170000) return "160k-170k";
+                                if (amt > 170000 && amt <= 180000) return "170k-180k";
+                                if (amt > 180000 && amt <= 190000) return "180k-190k";
+                                if (amt > 190000 && amt <= 200000) return "190k-200k";
+                                if (amt > 200000 && amt <= 210000) return "200k-210k";
+                                if (amt > 210000 && amt <= 220000) return "210k-220k";
+                                if (amt > 220000 && amt <= 230000) return "220k-230k";
+                                if (amt > 230000 && amt <= 240000) return "230k-240k";
+                                if (amt > 240000 && amt <= 250000) return "240k-250k";
+                                if (amt > 250000) return "250K";
+                            }
 
-                        for (i = 0; i < doc.clickHistory.length; i++) {
-                            if (doc.clickHistory[i].addedToCart == "yes") {
-                                emit(setRange(doc.income), 1);
+                            for (i = 0; i < doc.clickHistory.length; i++) {
+                                if (doc.clickHistory[i].addedToCart == "yes") {
+                                    emit(setRange(doc.income), 1);
+                                }
                             }
                         }
                     }
