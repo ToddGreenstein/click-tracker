@@ -82,7 +82,7 @@ module.exports.reset=function(done){
  */
 module.exports.readView = function (des, view, done) {
     var viewQuery = couchbase.ViewQuery;
-    var query = viewQuery.from(des, view).order(2).group(true);
+    var query = viewQuery.from(des, view).order(2).stale(2).group(true);
     db.query(query, function (err, results) {
         if (err) {
             done(err, null);
@@ -153,7 +153,6 @@ module.exports.buildView = function (done) {
                                 if (amt > 240000 && amt <= 250000) return "240k-250k";
                                 if (amt > 250000) return "250K";
                             }
-
                             for (i = 0; i < doc.clickHistory.length; i++) {
                                 if (doc.clickHistory[i].addedToCart == "yes") {
                                     emit(setRange(doc.income), 1);
